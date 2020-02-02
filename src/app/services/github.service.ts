@@ -13,7 +13,7 @@ export class GithubService {
 
   getPublicRepositoriesForUser(userName: string, sort: string, order: string, page: number): Observable<Repository[]> {
     return  this._httpClient.get<Repository[]>(
-      `${this._apiUrl}/users/${userName}/repos`
+      `${this._apiUrl}/users/${userName}/repos?sort=${sort}&order=${order}&page=${page + 1}`
     );
   }
 }

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatSort} from '@angular/material';
 import {merge, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {GithubService} from './services/github.service';
@@ -13,12 +13,13 @@ export class AppComponent implements AfterViewInit {
   title = 'Git Hub Repos';
   displayedColumns = [
     'name',
+    'language',
   ];
-  dataSource = new MatTableDataSource();
+  dataSource: RepositoryTableRow[] = [];
 
   resultsLength = 0;
 
-  @ViewChild(MatPaginator, {static: false}) sort: MatSort;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   constructor(private _gitHubService: GithubService) {
@@ -27,10 +28,8 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     merge(this.sort.sortChange, this.paginator.page)
       .pipe(
-        startWith({}),
+        startWith({} as string[]),
         switchMap(() => {
-            console.log('Loading repos from api');
-
             return this._gitHubService.getPublicRepositoriesForUser(
               'mygeen',
               this.sort.active,
@@ -41,16 +40,27 @@ export class AppComponent implements AfterViewInit {
         ),
         map(repos => {
           this.resultsLength = repos.length;
-          console.log('Results received!', repos);
 
-          return repos.map(x => x.name);
+          return repos.map(x => new RepositoryTableRow(x.name, x.language ? x.language : ''));
         }),
         catchError((err, caught) => {
-          console.log('Error caught...');
           console.error(err);
 
           return observableOf([]);
         })
-      ).subscribe(data => this.dataSource.data = data);
+      ).subscribe(data => {
+      console.log('data', data);
+      this.dataSource = data;
+    });
+  }
+}
+
+export class RepositoryTableRow {
+  name: string;
+  language: string;
+
+  constructor(name: string, language: string) {
+    this.name = name;
+    this.language = language;
   }
 }

@@ -3,11 +3,17 @@
              matSortActive="created" matSortDisableClear matSortDirection="asc">
 
     <ng-container matColumnDef="name">
-      <mat-header-cell
-        fxFlex="10%"
-        *matHeaderCellDef
-        mat-sort-header> Repository name</mat-header-cell>
+      <mat-header-cell fxFlex="10%" *matHeaderCellDef mat-sort-header>
+        Repository name
+      </mat-header-cell>
       <mat-cell fxFlex="10%" *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="language">
+      <mat-header-cell fxFlex="10%" *matHeaderCellDef mat-sort-header>
+        Language
+      </mat-header-cell>
+      <mat-cell fxFlex="10%" *matCellDef="let row"> {{row.language}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
