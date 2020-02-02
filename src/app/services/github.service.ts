@@ -11,7 +11,9 @@ export class GithubService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getPublicRepositoriesForUser(userName: string): Observable<Repository[]> {
-    return  this._httpClient.get<Repository[]>(`${this._apiUrl}/users/${userName}/repos`);
+  getPublicRepositoriesForUser(userName: string, sort: string, order: string, page: number): Observable<Repository[]> {
+    return  this._httpClient.get<Repository[]>(
+      `${this._apiUrl}/users/${userName}/repos`
+    );
   }
 }
