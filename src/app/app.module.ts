@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { UserRepositoriesComponent } from './components/user/user-repositories/user-repositories.component';
+import { UserRepositoriesComponent } from './components/user-repositories/user-repositories.component';
 import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({

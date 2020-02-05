@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
 import {merge, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-import {GithubService} from '../../../services/github.service';
+import {GithubService} from '../../services/github.service';
 
 @Component({
   selector: 'app-repositories',
