@@ -1,24 +1,19 @@
-<div class="repository-component mat-elevation-z8">
-  <mat-table [dataSource]="dataSource" matSort class="repository-table"
-             matSortActive="created" matSortDisableClear matSortDirection="asc">
+<mat-card class="repository-component mat-elevation-z8">
+  <table [dataSource]="dataSource" mat-table matSort class="repository-table">
 
     <ng-container matColumnDef="name">
-      <mat-header-cell fxFlex="10%" *matHeaderCellDef mat-sort-header>
-        Repository name
-      </mat-header-cell>
-      <mat-cell fxFlex="10%" *matCellDef="let row"> {{row.name}} </mat-cell>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Repository name </th>
+      <td *matCellDef="let row" mat-cell> {{row.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="language">
-      <mat-header-cell fxFlex="10%" *matHeaderCellDef mat-sort-header>
-        Language
-      </mat-header-cell>
-      <mat-cell fxFlex="10%" *matCellDef="let row"> {{row.language}} </mat-cell>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Language </th>
+      <td *matCellDef="let row" mat-cell> {{row.language}} </td>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
 
-    <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
-  </mat-table>
-</div>
+  <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+</mat-card>
