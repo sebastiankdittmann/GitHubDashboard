@@ -5,7 +5,7 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {GithubService} from '../../services/github.service';
 
 @Component({
-  selector: 'app-repositories',
+  selector: 'user-repositories',
   templateUrl: './user-repositories.component.html',
   styleUrls: ['./user-repositories.component.css']
 })
