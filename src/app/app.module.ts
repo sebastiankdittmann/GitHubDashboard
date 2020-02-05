@@ -7,12 +7,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { UserRepositoriesComponent } from './components/user-repositories/user-repositories.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { GithubStatisticsComponent } from './components/home/github-statistics/github-statistics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRepositoriesComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    GithubStatisticsComponent
   ],
   imports: [
     BrowserModule,
