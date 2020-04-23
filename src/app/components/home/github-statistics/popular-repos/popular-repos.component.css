@@ -1,0 +1,20 @@
+.repository-component {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  width: 100%;
+  position: relative;
+  padding: unset;
+  overflow: scroll;
+}
+
+.repository-table {
+  min-height: 300px;
+  width: inherit;
+}
+
+.rate-limit-reached {
+  color: #980000;
+  max-width: 360px;
+  text-align: center;
+}

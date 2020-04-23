@@ -12,13 +12,11 @@
 /* Control the left side */
 .left {
   left: 0;
-  background-color: #DCDCDC;
 }
 
 /* Control the right side */
 .right {
   right: 0;
-  background-color: #A9A9A9;
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -28,4 +26,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.data-view {
+  width: max-content;
+  display: inline-block;
 }

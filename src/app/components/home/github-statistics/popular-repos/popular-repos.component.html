@@ -1,1 +1,22 @@
-<p>popular-repos works!</p>
+<mat-card class="repository-component mat-elevation-z8">
+  <table [dataSource]="dataSource" mat-table  matSort class="repository-table">
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Repository name </th>
+      <td *matCellDef="let row" mat-cell> {{row.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="forksCount">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> # Forks </th>
+      <td *matCellDef="let row" mat-cell> {{row.forksCount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="language">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Language </th>
+      <td *matCellDef="let row" mat-cell> {{row.language}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</mat-card>
