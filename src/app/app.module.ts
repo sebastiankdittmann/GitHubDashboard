@@ -9,6 +9,8 @@ import { UserRepositoriesComponent } from './components/user-repositories/user-r
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { GithubStatisticsComponent } from './components/home/github-statistics/github-statistics.component';
+import { PopularReposComponent } from './components/home/github-statistics/popular-repos/popular-repos.component';
+import { LoginComponent } from './components/home/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { GithubStatisticsComponent } from './components/home/github-statistics/g
     UserRepositoriesComponent,
     HeaderComponent,
     HomeComponent,
-    GithubStatisticsComponent
+    GithubStatisticsComponent,
+    PopularReposComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
